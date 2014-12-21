@@ -21,6 +21,7 @@ data <- NEI %>%
   )
 
 # Generating the plot and saving it
-qplot(year, total_emissions, data = data, color = type, geom = "line", ylab = "Total PM2.5 emissions", 
+qplot(year, total_emissions, data = data, color = type, geom = "line", ylab = "Total PM2.5 emissions",
     xlab = "Year", main = "Anual Emissions Baltimore City, Maryland by type of pollutant")
 ggsave("plot3.png")
+dev.off()
