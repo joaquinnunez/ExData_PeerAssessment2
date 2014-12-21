@@ -10,7 +10,6 @@ library(ggplot2)
 NEI <- readRDS("summarySCC_PM25.rds")
 SCC.DATA <- readRDS("Source_Classification_Code.rds")
 
-# this is like `select sum(Emissions) from NEI where SCC in levels group by year` in SQL
 # Using SCC.Level.Three to filter for coal combustion-related emissions
 levels <- SCC.DATA[grep("Coal", SCC.DATA$SCC.Level.Three), "SCC"]
 data <- subset(NEI, SCC %in% levels) %>%
