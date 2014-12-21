@@ -24,7 +24,7 @@ NEI <- readRDS("summarySCC_PM25.rds")
 # SCC <- readRDS("Source_Classification_Code.rds")
 
 # this is like `select sum(Emissions) from NEI group by year` in SQL
-plot1.data <- NEI %>%
+data <- NEI %>%
   group_by(year) %>%
   summarise(
     total_emissions = sum(Emissions, na.rm = TRUE)
@@ -32,5 +32,5 @@ plot1.data <- NEI %>%
 
 # Generating the plot and saving it
 png(filename = "plot1.png", bg = "transparent")
-plot(plot1.data, type = "l", ylab = "Total PM2.5 emission from all sources", xlab = "Years")
+plot(data, type = "l", ylab = "Total PM2.5 emission from all sources", xlab = "Years", main = "Annual Emissions")
 dev.off()
